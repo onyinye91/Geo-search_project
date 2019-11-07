@@ -1,0 +1,71 @@
+body{
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 15px;
+    letter-spacing: 0.2em;
+    padding: 0;
+    margin: 0;
+}
+
+header{
+    background: #35424a;
+    color: aliceblue;
+    padding-top: 30px;
+    min-height: 70px;
+    border-bottom:#e8491d 3px solid;
+}
+
+
+#image{
+    max-width: 100%;
+    height: 400px;
+    background-image: url('images/image6.jpg');
+    background-size: 100% 100%;
+    border: 1px solid red;
+    text-align: center;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    padding: 50px 0 0 300px;
+    color:black;
+}
+
+.container{
+    width: 80%;
+    margin: auto;
+    max-width: 400px;
+}
+
+#search{
+    background: #35424a;
+    color: aliceblue;
+    padding-top: 30px;
+    min-height: 70px;
+    border-bottom:#e8491d 3px solid;
+    text-align: center;
+}
+
+h2{
+    text-align: center;
+}
+
+#myInput{
+    text-align: center;
+    width: 400px;
+    height: auto;
+    padding: 10px;
+}
+
+.imageword{
+    margin: auto;
+    float: right;
+}
+
+.foot{
+    padding: 20px;
+    margin-top: 0px;
+    color: black;
+    text-align: center;
+    background-color: bisque;
+}
+
+footer a{
+    text-decoration: none;
+} 
