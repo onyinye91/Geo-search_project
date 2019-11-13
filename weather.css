@@ -95,4 +95,18 @@ h5{
     overflow: hidden;
 }
 
+.foot{
+    padding: 20px;
+    margin-top: 0px;
+    color: #e8491d;
+    text-align: center;
+    background-color:#35424a;
+    border-top:#e8491d 3px solid;
+}
+
+footer a{
+    text-decoration: none;
+    color: #e8491d;
+} 
+
 
