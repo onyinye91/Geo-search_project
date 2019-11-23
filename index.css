@@ -25,6 +25,7 @@ header{
     font-family: Georgia, 'Times New Roman', Times, serif;
     padding: 50px 0 0 300px;
     color:black;
+    display: block;
 }
 
 .container{
@@ -56,6 +57,35 @@ h2{
 .imageword{
     margin: auto;
     float: right;
+}
+
+
+/* css for details */
+
+.weather_report{
+    text-align: center;
+    text-transform: uppercase;
+    color: black;
+    padding: 0px 0px 0px 0px;
+    background-color: red;
+    /* padding: 10px 0; */
+}
+
+h5{
+    padding: 20px 0px 0px 0px;
+}
+
+.timezone{
+    margin: 20px 0px;
+}
+.weather{
+    margin: 20px 0px;
+}
+.tempC{
+    margin: 20px 0px;
+}
+.tempF{
+    padding: 20px 0px;
 }
 
 .foot{
