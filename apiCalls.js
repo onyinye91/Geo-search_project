@@ -116,17 +116,17 @@ button.addEventListener('onclick', (e) => {
 
     
 
-    weather.innerHTML = `
-    <h5><strong>${cityWeather.name} Weather Conditions</strong></h4>
-    <div class="timezone">TIMEZONE: ${cityWeather.timezone}</div>    
-    <div class="windSpeed">WINDSPEED: ${cityWeather.wind.speed}</div><br>
-    <div class="humidity">HUMIDITY: ${cityWeather.main.humidity}</div>
-    <div class="weather">WEATHER: ${cityWeather.weather[0].description}</div>          
-    <div class="tempF"><span>TEMPERATURE: ${conversionToF(cityWeather.main.temp)}<span>
-        <span>&#8457;<span>
-        <button type="submit" class="convert">&#8451;</button><br><br>
-    </div>
-    <div class="socialShare"><button><a href="#"><i class="fab fa-facebook-square"> share</i></a></button></div>
-`;
+//     weather.innerHTML = `
+//     <h5><strong>${cityWeather.name} Weather Conditions</strong></h4>
+//     <div class="timezone">TIMEZONE: ${cityWeather.timezone}</div>    
+//     <div class="windSpeed">WINDSPEED: ${cityWeather.wind.speed}</div><br>
+//     <div class="humidity">HUMIDITY: ${cityWeather.main.humidity}</div>
+//     <div class="weather">WEATHER: ${cityWeather.weather[0].description}</div>          
+//     <div class="tempF"><span>TEMPERATURE: ${conversionToF(cityWeather.main.temp)}<span>
+//         <span>&#8457;<span>
+//         <button type="submit" class="convert">&#8451;</button><br><br>
+//     </div>
+//     <div class="socialShare"><button><a href="#"><i class="fab fa-facebook-square"> share</i></a></button></div>
+// `;
 };  
 });
