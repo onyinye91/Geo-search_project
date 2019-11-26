@@ -1,0 +1,59 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="description" content="geo search">
+    <meta name="keyword" content="geo search">
+    <link rel="stylesheet" href="index.css">
+    <script src="https://api-maps.yandex.ru/2.1/?apikey=0590e418-7c3f-471e-8c45-2c53dce4658e&lang=en_US" type="text/javascript">
+    </script>
+    <title>GEO SEARCH</title>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>GEO SEARCH INC</h1>
+        </div>
+    </header>
+    <div id="image">
+        <h1 class="imagewords">welcome to GEO SEARCH INC...</h1>
+    </div>
+    <div id="search">
+        <form autocomplete="off">
+            <div class="autocomplete">
+                <h2>Search for a place of interest by city </h2>
+                <input id="myInput" type="text" placeholder="City Name" name="myCity">    
+                <button type="submit" class="button-1">Search</button>
+            </div>    
+        </form>
+    </div> 
+    <div class="weather_report">
+            <div id="map" class="card">
+            </div>
+
+           
+            <div class="details">
+                <!-- <h5><strong>CITY NAME</strong></h4>
+                <div class="timezone">TIMEZONE</div>    
+                <div class="windSpeed">Wind Speed</div><br>
+                <div class="humidity">Humidity</div>
+                <div class="weather">weather condition</div>          
+                <div class="tempC"><span>temp</span>    
+                <span>&#8451;<span>
+                    <button type="submit" class="convert">F</button><br><br>
+                </div>
+                <div class="socialShare"><button><a href="#"><i class="fab fa-facebook-square"> share</i></a></button></div> -->
+            </div>
+    </div>        
+    <footer>
+        <div class="foot">
+            <span><a href="#" class="private">privacy | </a></span>
+            <span><a href="#">terms | </a></span>
+            <span><a href="#">contact | </a></span>
+            <h5 class="copyright">copyright &copy; geosearch.inc</h5>
+        </div>
+    </footer> 
+    <script src="apiCalls.js"></script>
+</body>
+</html>
