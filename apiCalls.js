@@ -17,7 +17,7 @@ const cityForm = document.querySelector('form');
 const search = document.querySelector('.search');
 //const details = document.querySelector('.details');
 const weather = document.querySelector('.details');
-const button = document.querySelector('.convert');
+const button = document.querySelector('.tempF');
 const city = cityForm.myCity.value.trim();
 
 // console.log(button.classList);
@@ -35,15 +35,30 @@ const updateUI = (data) => {
         <div class="windSpeed">WINDSPEED: ${cityWeather.wind.speed}</div><br>
         <div class="humidity">HUMIDITY: ${cityWeather.main.humidity}</div>
         <div class="weather">WEATHER: ${cityWeather.weather[0].description}</div>          
-        <div class="tempF"><span>TEMPERATURE: ${kelvinToCelsuis(cityWeather.main.temp)}<span>
+        <div class="tempF" style="display:block"><span>TEMPERATURE: ${kelvinToCelsuis(cityWeather.main.temp)}<span>
             <span>&#8451;<span>
-            <button type="submit" class="convert">&#8457;</button><br><br>
+            <button type="submit" class="convert" onClick="myfunc()">&#8457;</button><br><br>
+        </div>
+        <div class="tempC" style="display:none"><span>TEMPERATURE: ${conversionToF(cityWeather.main.temp)}<span>
+            <span>&#8457;<span>
+            <button type="submit" class="convert1" onClick="myFunc()">&#8451;</button><br><br>
         </div>
         <div class="socialShare"><button><a href="#"><i class="fab fa-facebook-square"> share</i></a></button></div>
     `;
-};    
+    
+}; 
 
+const myfunc = () => {
+    document.querySelector('.tempF').style.display = 'none';
+    document.querySelector('.tempC').style.display = 'block';
+    
+};
 
+const myFunc = () => {
+    document.querySelector('.tempC').style.display = 'none';
+    document.querySelector('.tempF').style.display = 'block';
+    
+};
 
 const updateCity = async (city) => {
 
@@ -109,24 +124,3 @@ const conversionToC = (fah) => {
 }
 
 //conversionToC();
-
-button.addEventListener('onclick', (e) => {
-    e.preventDefault();
-    if(e.target.classList.contains(tempF)){
-
-    
-
-//     weather.innerHTML = `
-//     <h5><strong>${cityWeather.name} Weather Conditions</strong></h4>
-//     <div class="timezone">TIMEZONE: ${cityWeather.timezone}</div>    
-//     <div class="windSpeed">WINDSPEED: ${cityWeather.wind.speed}</div><br>
-//     <div class="humidity">HUMIDITY: ${cityWeather.main.humidity}</div>
-//     <div class="weather">WEATHER: ${cityWeather.weather[0].description}</div>          
-//     <div class="tempF"><span>TEMPERATURE: ${conversionToF(cityWeather.main.temp)}<span>
-//         <span>&#8457;<span>
-//         <button type="submit" class="convert">&#8451;</button><br><br>
-//     </div>
-//     <div class="socialShare"><button><a href="#"><i class="fab fa-facebook-square"> share</i></a></button></div>
-// `;
-};  
-});
