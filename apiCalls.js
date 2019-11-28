@@ -30,8 +30,8 @@ const updateUI = (data) => {
 
     //update details template
     weather.innerHTML = `
-        <h5><strong>${cityWeather.name} Weather Conditions</strong></h4>
-        <div class="timezone">TIMEZONE: ${cityWeather.timezone}</div>    
+        <h2><strong>${cityWeather.name} Weather Conditions</strong></h2>
+        <div class="timezone">TIMEZONE: GMT ${timeZone(cityWeather.timezone)}</div>    
         <div class="windSpeed">WINDSPEED: ${cityWeather.wind.speed}</div><br>
         <div class="humidity">HUMIDITY: ${cityWeather.main.humidity}</div>
         <div class="weather">WEATHER: ${cityWeather.weather[0].description}</div>          
@@ -43,8 +43,8 @@ const updateUI = (data) => {
             <span>&#8457;<span>
             <button type="submit" class="convert1" onClick="myFunc()">&#8451;</button><br><br>
         </div>
-        <div class="socialShare"><button><a href="#"><i class="fab fa-facebook-square"> share</i></a></button></div>
-    `;
+        <iframe src="https://www.facebook.com/plugins/share_button.php?href=https%3A%2F%2Fdevelopers.facebook.com%2Fdocs%2Fplugins%2F&layout=button_count&size=small&width=96&height=20&appId" width="96" height="20" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowTransparency="true" allow="encrypted-media"></iframe>
+        `;
     
 }; 
 
@@ -124,3 +124,12 @@ const conversionToC = (fah) => {
 }
 
 //conversionToC();
+
+const timeZone = (secs) => {
+    return +(secs/3600);
+}
+
+//console.log(timeZone(3600));
+
+
+  
