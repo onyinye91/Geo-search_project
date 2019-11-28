@@ -13,6 +13,14 @@ header{
     min-height: 70px;
     border-bottom:#e8491d 3px solid;
 }
+header a{
+    text-decoration: none;
+    color: aliceblue;
+} 
+
+header a:hover{
+    color: bisque;
+}
 
 
 #image{
@@ -67,7 +75,8 @@ h2{
     text-transform: uppercase;
     color: black;
     padding: 0px 0px 0px 0px;
-    background-color: red;
+    background-color: #ffe4c491;
+    font-family:'Special Elite', cursive;
     /* padding: 10px 0; */
 }
 
