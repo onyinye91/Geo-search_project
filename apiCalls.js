@@ -1,7 +1,7 @@
 const geo = async (cityName) => {
 
     //const api = "6e99790fa8ea80d4678d1444ccdf1e1c";
-    const APIWeatherCall = 'http://api.openweathermap.org/data/2.5/weather?q=' + cityName +'&APPID=6e99790fa8ea80d4678d1444ccdf1e1c'; 
+    const APIWeatherCall = 'https://api.openweathermap.org/data/2.5/weather?q=' + cityName +'&APPID=6e99790fa8ea80d4678d1444ccdf1e1c'; 
    //const APIMapCall = 'https://www.mapquestapi.com/staticmap/v5/map?key=7xJu4S9lffITaZdfAxSZkPPwunOEXcwl&center=' + cityName +',MA&size=@2x';
 
     const response = await fetch(APIWeatherCall);
