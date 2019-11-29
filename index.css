@@ -115,6 +115,8 @@ footer a{
 } 
 #map {
     display: none;
+    overflow: hidden;
+
 }
 
 .home{
@@ -154,6 +156,6 @@ header .logo h1{
     margin: 0;
 }
 
-/* html, body, #map {
+html, body, #map {
     width: 100%; height: 100%; padding: 0; margin: 0;
-} */
+}
