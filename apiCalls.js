@@ -111,7 +111,7 @@ const updateUI = (data) => {
 
             }),
     
-            myPlacemarkWithContent = new ymaps.Placemark([55.661574, 37.573856], {
+            myPlacemarkWithContent = new ymaps.Placemark([lat, lon], {
                 hintContent: 'A custom placemark icon with contents',
                 balloonContent: 'This one — for Christmas',
                 iconContent: '12'
@@ -146,6 +146,10 @@ const showError = (err) => {
     weather.innerHTML = `<div class="error"><b>ERROR!! CITY NOT FOUND<b></div>`;
     if(city.length === 0 ){
     weather.innerHTML = `<div class="error"><b>Please Enter A City<b></div>`;
+
+    document.querySelector('#image').style.display = 'block';
+    document.querySelector('#map').style.display = 'none';
+
 
     }
 }
