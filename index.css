@@ -58,7 +58,8 @@ h2{
 
 #myInput{
     text-align: center;
-    width: 400px;
+    width: 300px;
+    min-width: 100px;
     height: auto;
     padding: 10px;
 }
