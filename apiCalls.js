@@ -5,6 +5,10 @@ const geo = async (cityName) => {
    //const APIMapCall = 'https://www.mapquestapi.com/staticmap/v5/map?key=7xJu4S9lffITaZdfAxSZkPPwunOEXcwl&center=' + cityName +',MA&size=@2x';
 
     const response = await fetch(APIWeatherCall);
+
+    if(response.status === 404){
+        throw new Error('city not found')
+    }
     const data = await response.json();
     return(data);
 
@@ -48,6 +52,10 @@ const updateUI = (data) => {
     
 }; 
 
+const showError = (err) => {
+    weather.textContent = "CITY NOT FOUND";
+}
+
 const myfunc = () => {
     document.querySelector('.tempF').style.display = 'none';
     document.querySelector('.tempC').style.display = 'block';
@@ -77,29 +85,30 @@ cityForm.addEventListener('submit', e => {
     cityForm.reset();
     //clear out form fields
 
-    // The ymaps.ready() function will be called when
-    // all the API components are loaded and the DOM tree is generated.
-    ymaps.ready(init);
-    function init(){ 
-        // Creating the map.    
-        var myMap = new ymaps.Map("map", {
-            // The map center coordinates.
-            // Default order: “latitude, longitude”.
-            // To not manually determine the map center coordinates,
-            // use the Coordinate detection tool.
-            center: [city],
-            // Zoom level. Acceptable values:
-            // from 0 (the entire world) to 19.
-            zoom: 7
-        });
-    }
+    // // The ymaps.ready() function will be called when
+    // // all the API components are loaded and the DOM tree is generated.
+    // ymaps.ready(init);
+    // function init(){ 
+    //     // Creating the map.    
+    //     var myMap = new ymaps.Map("map", {
+    //         // The map center coordinates.
+    //         // Default order: “latitude, longitude”.
+    //         // To not manually determine the map center coordinates,
+    //         // use the Coordinate detection tool.
+    //         center: [city],
+    //         // Zoom level. Acceptable values:
+    //         // from 0 (the entire world) to 19.
+    //         zoom: 7
+    //     });
+    // }
     //update UI with new city
     updateCity(city)
         //.then(data => console.log(data))
         .then(data => updateUI(data))
-        .catch(err => console.log(err));
+        .catch(err => 
+            showError(err.message))
     //window.open('weather.html');
-    document.getElementById("map").style.height = "400px";
+    document.getElementById("map").style.height = "300px";
 
 });
 //conversion from k to c
