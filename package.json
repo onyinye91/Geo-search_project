@@ -1,0 +1,24 @@
+{
+  "name": "geo-search_project",
+  "version": "1.0.0",
+  "description": "",
+  "main": "apiCalls.js",
+  "dependencies": {},
+  "devDependencies": {
+    "eslint": "^6.7.1",
+    "eslint-plugin-react": "^7.17.0"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/onyinye91/Geo-search_project.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/onyinye91/Geo-search_project/issues"
+  },
+  "homepage": "https://github.com/onyinye91/Geo-search_project#readme"
+}
