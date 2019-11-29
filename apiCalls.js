@@ -225,6 +225,4 @@ const timeZone = (secs) => {
     return +(secs/3600);
 }
 
-//console.log(timeZone(3600));
-
    
