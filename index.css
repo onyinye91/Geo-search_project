@@ -13,6 +13,14 @@ header{
     min-height: 70px;
     border-bottom:#e8491d 3px solid;
 }
+/* header a{
+    text-decoration: none;
+    color: aliceblue;
+}  */
+
+/* header a:hover{
+    color: bisque;
+} */
 
 
 #image{
@@ -31,7 +39,8 @@ header{
 .container{
     width: 80%;
     margin: auto;
-    max-width: 400px;
+    /* max-width: 400px; */
+    overflow: hidden;
 }
 
 #search{
@@ -66,26 +75,31 @@ h2{
     text-align: center;
     text-transform: uppercase;
     color: black;
-    padding: 0px 0px 0px 0px;
-    background-color: red;
+    background-color: #ffe4c491;
+    font-family:'Special Elite', cursive;
     /* padding: 10px 0; */
 }
 
-h5{
-    padding: 20px 0px 0px 0px;
+h2{
+    padding: 10px 0px 0px 0px;
 }
 
 .timezone{
-    margin: 20px 0px;
+    margin: 10px 0px;
 }
 .weather{
-    margin: 20px 0px;
+    margin: 10px 0px;
 }
 .tempC{
-    margin: 20px 0px;
+    margin: 10px 0px;
 }
 .tempF{
-    padding: 20px 0px;
+    padding: 10px 0px;
+}
+.error{
+    padding: 50px 0px;
+    color: red;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
 
 .foot{
@@ -99,3 +113,47 @@ h5{
 footer a{
     text-decoration: none;
 } 
+#map {
+    display: none;
+}
+
+.home{
+    float: right;
+    color: aliceblue;
+    display: none;
+}
+
+
+header a:link{
+    color: #e8491d;
+    text-decoration: none;
+    font-weight: bold;
+}
+header a:hover{
+    color: red;
+    font-style: italic;
+}
+
+header ul{
+    margin: 0;
+    padding: 0;
+}
+header li{
+    float: left;
+    display: inline;
+    padding: 0 5px 0 5px;
+}
+header nav{
+    float: right;
+    margin-top: 10px;
+}
+header .logo{
+    float: left;
+}
+header .logo h1{
+    margin: 0;
+}
+
+/* html, body, #map {
+    width: 100%; height: 100%; padding: 0; margin: 0;
+} */

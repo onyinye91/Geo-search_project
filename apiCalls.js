@@ -5,6 +5,10 @@ const geo = async (cityName) => {
    //const APIMapCall = 'https://www.mapquestapi.com/staticmap/v5/map?key=7xJu4S9lffITaZdfAxSZkPPwunOEXcwl&center=' + cityName +',MA&size=@2x';
 
     const response = await fetch(APIWeatherCall);
+
+    if(response.status === 404){
+        throw new Error('city not found')
+    }
     const data = await response.json();
     return(data);
 
@@ -19,6 +23,7 @@ const search = document.querySelector('.search');
 const weather = document.querySelector('.details');
 const button = document.querySelector('.tempF');
 const city = cityForm.myCity.value.trim();
+const map = document.querySelector('#map');
 
 // console.log(button.classList);
 
@@ -27,11 +32,13 @@ const updateUI = (data) => {
     const cityWeather = data.cityWeather;
 
     console.log(cityWeather.weather[0].description);
+    console.log(cityWeather.coord.lat);
+    console.log(cityWeather.coord.lon);
 
     //update details template
     weather.innerHTML = `
-        <h5><strong>${cityWeather.name} Weather Conditions</strong></h4>
-        <div class="timezone">TIMEZONE: ${cityWeather.timezone}</div>    
+        <div><h2><strong>${cityWeather.name} Weather Conditions</strong></h2></div>
+        <div class="timezone">TIMEZONE: GMT ${timeZone(cityWeather.timezone)}</div>    
         <div class="windSpeed">WINDSPEED: ${cityWeather.wind.speed}</div><br>
         <div class="humidity">HUMIDITY: ${cityWeather.main.humidity}</div>
         <div class="weather">WEATHER: ${cityWeather.weather[0].description}</div>          
@@ -43,10 +50,18 @@ const updateUI = (data) => {
             <span>&#8457;<span>
             <button type="submit" class="convert1" onClick="myFunc()">&#8451;</button><br><br>
         </div>
-        <div class="socialShare"><button><a href="#"><i class="fab fa-facebook-square"> share</i></a></button></div>
-    `;
+        <iframe src="https://www.facebook.com/plugins/share_button.php?href=https%3A%2F%2Fdevelopers.facebook.com%2Fdocs%2Fplugins%2F&layout=button_count&size=small&width=96&height=20&appId" width="96" height="20" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowTransparency="true" allow="encrypted-media"></iframe>
+        `;
     
 }; 
+
+const showError = (err) => {
+    weather.innerHTML = `<div class="error"><b>ERROR!! CITY NOT FOUND<b></div>`;
+    if(city.length === 0 ){
+    weather.innerHTML = `<div class="error"><b>Please Enter A City<b></div>`;
+
+    }
+}
 
 const myfunc = () => {
     document.querySelector('.tempF').style.display = 'none';
@@ -76,30 +91,18 @@ cityForm.addEventListener('submit', e => {
     // trim() to prevent white space from user
     cityForm.reset();
     //clear out form fields
+    document.querySelector('#image').style.display = 'none';
+    document.querySelector('#map').style.display = 'block';
+    document.querySelector('.home').style.display = 'inline';
 
-    // The ymaps.ready() function will be called when
-    // all the API components are loaded and the DOM tree is generated.
-    ymaps.ready(init);
-    function init(){ 
-        // Creating the map.    
-        var myMap = new ymaps.Map("map", {
-            // The map center coordinates.
-            // Default order: “latitude, longitude”.
-            // To not manually determine the map center coordinates,
-            // use the Coordinate detection tool.
-            center: [city],
-            // Zoom level. Acceptable values:
-            // from 0 (the entire world) to 19.
-            zoom: 7
-        });
-    }
+    
     //update UI with new city
     updateCity(city)
         //.then(data => console.log(data))
         .then(data => updateUI(data))
-        .catch(err => console.log(err));
+        .catch(err => showError(err.message))
     //window.open('weather.html');
-    document.getElementById("map").style.height = "400px";
+    document.getElementById("map").style.height = "250px";
 
 });
 //conversion from k to c
@@ -124,3 +127,93 @@ const conversionToC = (fah) => {
 }
 
 //conversionToC();
+
+const timeZone = (secs) => {
+    return +(secs/3600);
+}
+
+//console.log(timeZone(3600));
+
+// The ymaps.ready() function will be called when
+    // all the API components are loaded and the DOM tree is generated.
+    ymaps.ready(init);
+    function init(){ 
+        // Creating the map.    
+        var myMap = new ymaps.Map("map", {
+            // The map center coordinates.
+            // Default order: “latitude, longitude”.
+            // To not manually determine the map center coordinates,
+            // use the Coordinate detection tool.
+            center: [6.46,3.39],
+            // Zoom level. Acceptable values:
+            // from 0 (the entire world) to 19.
+            zoom: 7
+        });
+    }
+
+    // ymaps.ready(function () {
+    //     var myMap = new ymaps.Map('map', {
+    //             center: [55.751574, 37.573856],
+    //             zoom: 9
+    //         }, {
+    //             searchControlProvider: 'yandex#search'
+    //         }),
+    
+    //         // Creating a content layout.
+    //         MyIconContentLayout = ymaps.templateLayoutFactory.createClass(
+    //             '<div style="color: #FFFFFF; font-weight: bold;">$[properties.iconContent]</div>'
+    //         ),
+    
+    //         myPlacemark = new ymaps.Placemark(myMap.getCenter(), {
+    //             hintContent: 'A custom placemark icon',
+    //             balloonContent: 'This is a pretty placemark'
+    //         }, {
+    //             /**
+    //              * Options.
+    //              * You must specify this type of layout.
+    //              */
+    //             iconLayout: 'default#image',
+    //             // Custom image for the placemark icon.
+    //             iconImageHref: 'images/myIcon.gif',
+    //             // The size of the placemark.
+    //             iconImageSize: [30, 42],
+    //             /**
+    //              * The offset of the upper left corner of the icon relative
+    //              * to its "tail" (the anchor point).
+    //              */
+    //             iconImageOffset: [-5, -38]
+    //         }),
+    
+    //         myPlacemarkWithContent = new ymaps.Placemark([55.661574, 37.573856], {
+    //             hintContent: 'A custom placemark icon with contents',
+    //             balloonContent: 'This one — for Christmas',
+    //             iconContent: '12'
+    //         }, {
+    //             /**
+    //              * Options.
+    //              * You must specify this type of layout.
+    //              */
+    //             iconLayout: 'default#imageWithContent',
+    //             // Custom image for the placemark icon.
+    //             iconImageHref: 'images/ball.png',
+    //             // The size of the placemark.
+    //             iconImageSize: [48, 48],
+    //             /**
+    //              * The offset of the upper left corner of the icon relative
+    //              * to its "tail" (the anchor point).
+    //              */
+    //             iconImageOffset: [-24, -24],
+    //             // Offset of the layer with content relative to the layer with the image.
+    //             iconContentOffset: [15, 15],
+    //             // Content layout.
+    //             iconContentLayout: MyIconContentLayout
+    //         });
+    
+    //     myMap.geoObjects
+    //         .add(myPlacemark)
+    //         .add(myPlacemarkWithContent);
+    // });
+    
+
+
+  
